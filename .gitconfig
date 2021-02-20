@@ -1,0 +1,16 @@
+[credential]
+	helper = store
+[user]
+	name = Faiz Surani
+	email = faiz.surani@gmail.com
+[alias]
+	st = status
+	br = branch
+	amend = commit --amend --no-edit
+	rbi = rebase -i
+	cp = cherry-pick
+[core]
+	excludesfile = /home/faiz/.gitignore
+	fileMode = false
+[hub]
+	protocol = https
