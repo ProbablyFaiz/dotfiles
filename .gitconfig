@@ -8,9 +8,14 @@
 	br = branch
 	amend = commit --amend --no-edit
 	rbi = rebase -i
+	rbc = rebase --continue
 	cp = cherry-pick
+	hide = update-index --assume-unchanged
+    	unhide = update-index --no-assume-unchanged
+	cm = commit -m
+	cb = checkout -b
 [core]
-	excludesfile = /home/faiz/.gitignore
+	excludesfile = ~/.gitignore
 	fileMode = false
 [hub]
 	protocol = https
