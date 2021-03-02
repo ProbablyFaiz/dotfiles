@@ -11,6 +11,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'valloric/youcompleteme'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'vim-syntastic/syntastic'
+Plug 'dag/vim-fish'
 
 call plug#end()
 
@@ -21,5 +23,7 @@ endif
 let g:material_theme_style = 'darker-community'
 colorscheme material
 let g:airline#extensions#tabline#enabled = 1
+let python_highlight_all=1
 
-nmap <F1> :NERDTreeToggle<CR>
+let mapleader = ","
+nmap <leader>ne :NERDTree<cr>
