@@ -1,6 +1,7 @@
 starship init fish | source
 alias ls="lsd"
 alias config='/usr/bin/git --git-dir=/home/faiz/.dotfiles/ --work-tree=/home/faiz'
+alias gloh='git log --oneline -n 10'
 
 thefuck --alias | source 
 source ~/.asdf/asdf.fish

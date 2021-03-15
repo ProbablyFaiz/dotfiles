@@ -27,3 +27,6 @@ let python_highlight_all=1
 
 let mapleader = ","
 nmap <leader>ne :NERDTree<cr>
+
+set is hls
+hi Search ctermbg=LightRed ctermfg=black guibg=Orange guifg=black
