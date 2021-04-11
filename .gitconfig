@@ -3,6 +3,7 @@
 [user]
 	name = Faiz Surani
 	email = faiz.surani@gmail.com
+	signingkey = C26623C031CA07D5
 [alias]
 	st = status
 	br = branch
@@ -19,3 +20,5 @@
 	fileMode = false
 [hub]
 	protocol = https
+[commit]
+	gpgSign = true
