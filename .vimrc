@@ -11,7 +11,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'valloric/youcompleteme'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
-Plug 'vim-syntastic/syntastic'
 Plug 'dag/vim-fish'
 
 call plug#end()

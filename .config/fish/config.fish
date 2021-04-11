@@ -1,10 +1,18 @@
 starship init fish | source
 alias ls="lsd"
-alias config='/usr/bin/git --git-dir=/home/faiz/.dotfiles/ --work-tree=/home/faiz'
 alias gloh='git log --oneline -n 10'
 
 thefuck --alias | source 
-source ~/.asdf/asdf.fish
+
+switch (uname)
+	case Linux
+        	source ~/.asdf/asdf.fish
+                alias config='/usr/bin/git --git-dir=/home/faiz/.dotfiles/ --work-tree=/home/faiz'
+	case Darwin
+		source /usr/local/opt/asdf/asdf.fish
+                alias config='/usr/bin/git --git-dir=/Users/faiz/.cfg --work-tree=/Users/faiz'
+	end
+
 
 set -x LESS_TERMCAP_mb (printf "\033[1;32m")  
 set -x LESS_TERMCAP_md (printf "\033[1;32m")  
