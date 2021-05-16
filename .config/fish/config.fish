@@ -1,6 +1,7 @@
 starship init fish | source
 alias ls="lsd"
 alias gloh='git log --oneline -n 10'
+alias jw='fuck --yeah'
 
 thefuck --alias | source 
 
