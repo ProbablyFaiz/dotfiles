@@ -7,3 +7,4 @@ rust 1.49.0
 python 3.9.1
 racket 7.9
 golang 1.15.8
+ocaml 4.13.0

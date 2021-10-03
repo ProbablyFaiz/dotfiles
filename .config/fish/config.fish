@@ -25,3 +25,4 @@ set -x LESS_TERMCAP_us (printf "\033[1;4;31m")
 
 export RAILS_DB_HOST=localhost
 export GPG_TTY=(tty)
+
