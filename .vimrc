@@ -33,3 +33,4 @@ hi Search ctermbg=LightRed ctermfg=black guibg=Orange guifg=black
 set expandtab
 set shiftwidth=4
 
+set backspace=indent,eol,start
