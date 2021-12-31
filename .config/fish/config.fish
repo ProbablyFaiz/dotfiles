@@ -5,6 +5,10 @@ alias jw='fuck --yeah'
 
 thefuck --alias | source 
 
+function ppid
+    lsof -ti:$argv
+end
+
 switch (uname)
 	case Linux
         	source ~/.asdf/asdf.fish
@@ -25,4 +29,6 @@ set -x LESS_TERMCAP_us (printf "\033[1;4;31m")
 
 export RAILS_DB_HOST=localhost
 export GPG_TTY=(tty)
+
+fish_add_path /usr/local/opt/bison/bin
 

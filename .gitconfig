@@ -8,8 +8,10 @@
 	st = status
 	br = branch
 	amend = commit --amend --no-edit
+        edit = commit --amend
 	rbi = rebase -i
 	rbc = rebase --continue
+        rba = rebase --abort
 	cp = cherry-pick
 	hide = update-index --assume-unchanged
     	unhide = update-index --no-assume-unchanged
@@ -17,6 +19,8 @@
 	cb = checkout -b
 	wip = !git add -A && git commit -m 'WIP'
 	back = reset --soft HEAD~
+        shove = push --set-upstream origin HEAD
+        dfs = diff --staged
 [core]
 	excludesfile = ~/.gitignore
 	fileMode = false
