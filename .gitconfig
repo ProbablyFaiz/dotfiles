@@ -9,6 +9,7 @@
 	br = branch
 	amend = commit --amend --no-edit
         edit = commit --amend
+        rb = rebase
 	rbi = rebase -i
 	rbc = rebase --continue
         rba = rebase --abort
@@ -21,6 +22,7 @@
 	back = reset --soft HEAD~
         shove = push --set-upstream origin HEAD
         dfs = diff --staged
+        pf = push -f
 [core]
 	excludesfile = ~/.gitignore
 	fileMode = false
