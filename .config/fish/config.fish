@@ -30,5 +30,5 @@ set -x LESS_TERMCAP_us (printf "\033[1;4;31m")
 export RAILS_DB_HOST=localhost
 export GPG_TTY=(tty)
 
-fish_add_path /usr/local/opt/bison/bin
-
+# opam configuration
+source /home/faiz/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
