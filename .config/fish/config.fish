@@ -1,8 +1,9 @@
 starship init fish | source
-alias ls="lsd"
+alias ls="lsd -A"
 alias gloh='git log --oneline -n 10'
 alias jw='fuck --yeah'
 alias asrp='asdf reshim python'
+alias wh='wormhole'
 
 thefuck --alias | source 
 
@@ -21,8 +22,8 @@ switch (uname)
 		source /opt/homebrew/opt/asdf/libexec/asdf.fish
                 alias config='/usr/bin/git --git-dir=/Users/faiz/.cfg --work-tree=/Users/faiz'
                 fish_add_path /opt/homebrew/opt/llvm@11/bin
+                fish_add_path '/Applications/Racket v8.3/bin'
 	end
-
 
 set -x LESS_TERMCAP_mb (printf "\033[1;32m")  
 set -x LESS_TERMCAP_md (printf "\033[1;32m")  

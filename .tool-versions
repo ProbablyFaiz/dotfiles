@@ -6,5 +6,6 @@ yarn 1.22.10
 rust 1.49.0
 python 3.9.1
 racket 7.9
-golang 1.15.8
+golang 1.17.6
 opam 2.1.0
+haskell 9.0.2

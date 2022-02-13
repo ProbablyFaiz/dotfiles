@@ -16,7 +16,7 @@
 	cp = cherry-pick
 	hide = update-index --assume-unchanged
     	unhide = update-index --no-assume-unchanged
-	cm = commit -m
+	cm = commit
 	cb = checkout -b
 	wip = !git add -A && git commit -m 'WIP'
 	back = reset --soft HEAD~
