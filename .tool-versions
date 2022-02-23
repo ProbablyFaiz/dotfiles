@@ -8,4 +8,4 @@ python 3.9.1
 racket 7.9
 golang 1.17.6
 opam 2.1.0
-haskell 9.0.2
+haskell 8.10.7
