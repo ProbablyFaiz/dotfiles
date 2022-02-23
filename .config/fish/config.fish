@@ -4,6 +4,11 @@ alias gloh='git log --oneline -n 10'
 alias jw='fuck --yeah'
 alias asrp='asdf reshim python'
 alias wh='wormhole'
+alias efish='source ~/.config/fish/config.fish'
+alias vifish='vi ~/.config/fish/config.fish'
+alias gofish='vi ~/.config/fish/config.fish; source ~/.config/fish/config.fish'
+alias venv='source venv/bin/activate.fish'
+alias dvenv='deactivate'
 
 thefuck --alias | source 
 
@@ -36,3 +41,4 @@ set -x LESS_TERMCAP_us (printf "\033[1;4;31m")
 export GPG_TTY=(tty)
 
 
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /Users/faiz/.ghcup/bin # ghcup-env

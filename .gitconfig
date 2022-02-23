@@ -7,19 +7,24 @@
 [alias]
 	st = status
 	br = branch
+        l = log --oneline -n 10
 	amend = commit --amend --no-edit
         edit = commit --amend
         rb = rebase
+        rbl = "!f() { git rebase -i HEAD~$1; }; f"
 	rbi = rebase -i
 	rbc = rebase --continue
         rba = rebase --abort
 	cp = cherry-pick
+	cpc = cherry-pick --continue
+	cpa = cherry-pick --abort
 	hide = update-index --assume-unchanged
     	unhide = update-index --no-assume-unchanged
 	cm = commit
 	cb = checkout -b
 	wip = !git add -A && git commit -m 'WIP'
 	back = reset --soft HEAD~
+        gimme = !git fetch && git reset --hard @{u}
         shove = push --set-upstream origin HEAD
         dfs = diff --staged
         pf = push -f
