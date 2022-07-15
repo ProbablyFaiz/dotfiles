@@ -5,13 +5,20 @@
 	email = faiz.surani@gmail.com
 [alias]
 	st = status
+        s = status
 	br = branch
+        dfs = diff --staged
         l = log --oneline -n 10
-        f = fetch
+        a = add
+        aa = add -A
+        c = commit
+	cm = commit -m
 	amend = commit --amend --no-edit
+	wip = !git add -A && git commit -m 'WIP'
         edit = commit --amend
+        fix = commit -m "fixup"
+        refl = reflog
         rb = rebase
-        rbm = rebase -i origin/HEAD
         rbn = "!f() { git rebase -i HEAD~$1; }; f"
 	rbi = rebase -i
 	rbc = rebase --continue
@@ -21,17 +28,17 @@
 	cpa = cherry-pick --abort
 	hide = update-index --assume-unchanged
     	unhide = update-index --no-assume-unchanged
-	cm = commit -m
 	cb = checkout -b
 	co = checkout
-	wip = !git add -A && git commit -m 'WIP'
+        sh = stash
+        sp = stash pop
 	back = reset --soft HEAD~
+        rs = reset
+        f = fetch
         gimme = !git fetch && git reset --hard @{u}
-        shove = push --set-upstream origin HEAD
-        dfs = diff --staged
         p = push
         pf = push -f
-        fix = commit -m "fixup"
+        shove = push --set-upstream origin HEAD
 [core]
 	excludesfile = ~/.gitignore
 	fileMode = false
