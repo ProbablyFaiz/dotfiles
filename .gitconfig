@@ -11,9 +11,11 @@
         l = log --oneline -n 10
         a = add
         aa = add -A
+        au = add -u
         c = commit
 	cm = commit -m
 	amend = commit --amend --no-edit
+	ama = commit --amend --no-edit -a
 	wip = !git add -A && git commit -m 'WIP'
         edit = commit --amend
         fix = commit -m "fixup"
@@ -38,6 +40,8 @@
         gimme = !git fetch && git reset --hard @{u}
         p = push
         pf = push -f
+        pl = pull
+        pp = push --set-upstream origin HEAD
         shove = push --set-upstream origin HEAD
 [core]
 	excludesfile = ~/.gitignore

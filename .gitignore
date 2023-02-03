@@ -3,9 +3,11 @@
 .idea/
 .vscode/
 venv/
+node_modules/
 *.swp
 __pycache__/
 .DS_Store
 *.egg-info/
 *.DotSettings.user
+.ipynb_checkpoints/
 
