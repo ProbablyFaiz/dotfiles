@@ -17,6 +17,7 @@ alias pi='pip install'
 alias pipir='pip install -r requirements.txt'
 alias pipup='pip install --upgrade pip'
 alias gitconfig='vi ~/.gitconfig'
+alias untar='tar -xvzf'
 
 function ppid
     lsof -ti:$argv
