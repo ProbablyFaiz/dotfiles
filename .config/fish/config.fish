@@ -15,9 +15,11 @@ alias bs='brew search'
 alias g='git'
 alias pi='pip install'
 alias pipir='pip install -r requirements.txt'
+alias pipu='pip install --upgrade'
 alias pipup='pip install --upgrade pip'
 alias gitconfig='vi ~/.gitconfig'
 alias untar='tar -xvzf'
+alias countloc='git ls-files | grep ".*\.\(ts\|tsx\|js\|jsx\|py\|md\)\$" | grep -v "webpack" | xargs wc -l | sort -n'
 
 function ppid
     lsof -ti:$argv
