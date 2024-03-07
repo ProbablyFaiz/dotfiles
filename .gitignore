@@ -4,6 +4,7 @@
 .idea/
 .vscode/
 venv/
+.venv/
 node_modules/
 *.swp
 __pycache__/
