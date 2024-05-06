@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Prompt the user for their password
+read -s -p "Enter password for user faiz: " password
+echo
+
 # Update and install necessary packages
 sudo apt update
 sudo apt install fish libevent-dev ncurses-dev build-essential bison pkg-config gcc -y
@@ -36,7 +40,7 @@ sudo dpkg -i lsd-musl_1.0.0_amd64.deb
 curl -sS https://starship.rs/install.sh | sh
 
 # Change shell to fish
-chsh -s /usr/bin/fish
+sudo chsh -s $(which fish) $(whoami)
 
 # Disable password for sudo
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/$USER
