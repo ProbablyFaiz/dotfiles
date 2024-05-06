@@ -33,7 +33,9 @@ if status is-interactive
 
 switch (uname)
 	case Linux
-        	source ~/.asdf/asdf.fish
+                fish_add_path '/home/faiz/.local/bin'
+                fish_add_path '/home/faiz/.cargo/bin'
+        	source ~/.asdf/asdf.fish 2> /dev/null
                 alias config='/usr/bin/git --git-dir=/home/faiz/.dotfiles/ --work-tree=/home/faiz'
                 # opam configuration
                 source /home/faiz/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
@@ -64,3 +66,6 @@ export GPG_TTY=(tty)
 
 #set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /Users/faiz/.ghcup/bin # ghcup-env
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/faiz/dl/google-cloud-sdk/path.fish.inc' ]; . '/Users/faiz/dl/google-cloud-sdk/path.fish.inc'; end
