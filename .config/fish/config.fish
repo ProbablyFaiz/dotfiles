@@ -35,10 +35,12 @@ switch (uname)
 	case Linux
                 fish_add_path '/home/faiz/.local/bin'
                 fish_add_path '/home/faiz/.cargo/bin'
+                source "$HOME/.cargo/env.fish"
         	source ~/.asdf/asdf.fish 2> /dev/null
-                alias config='/usr/bin/git --git-dir=/home/faiz/.dotfiles/ --work-tree=/home/faiz'
+                alias config='/usr/bin/git --git-dir=/home/faiz/.cfg/ --work-tree=/home/faiz'
                 # opam configuration
                 source /home/faiz/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+                if test -f /home/faiz/.autojump/share/autojump/autojump.fish; . /home/faiz/.autojump/share/autojump/autojump.fish; end
 	case Darwin
                 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin /Users/faiz/.ghcup/bin $PATH # ghcup-env
                 set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
