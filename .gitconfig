@@ -15,6 +15,7 @@
         c = commit
 	cm = commit -m
 	amend = commit --amend --no-edit
+        apf = "!f() { git amend -a && git pf; }; f"
 	ama = commit --amend --no-edit -a
 	wip = !git add -A && git commit -m 'WIP'
         edit = commit --amend
@@ -58,6 +59,6 @@
 	process = git-lfs filter-process
 	required = true
 [init]
-	defaultBranch = master
+	defaultBranch = main
 [advice]
 	addEmptyPathspec = false
