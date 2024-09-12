@@ -1,6 +1,7 @@
 if status is-interactive
     starship init fish | source
     alias u="uv run"
+    alias pn="pnpm"
     alias ls="lsd -A"
     alias gloh='git log --oneline -n 10'
     alias asrp='asdf reshim python'
@@ -39,9 +40,17 @@ switch (uname)
         set -gx PATH /home/faiz/.local/bin $PATH
         set -gx PATH /home/faiz/.cargo/bin $PATH
         source ~/.asdf/asdf.fish 2>/dev/null
-        alias config='/usr/bin/git --git-dir=/home/faiz/.dotfiles/ --work-tree=/home/faiz'
+        alias config='/usr/bin/git --git-dir=/home/faiz/.cfg/ --work-tree=/home/faiz'
         # opam configuration
         source /home/faiz/.opam/opam-init/init.fish >/dev/null 2>/dev/null; or true
+        if test -f /home/faiz/.autojump/share/autojump/autojump.fish; . /home/faiz/.autojump/share/autojump/autojump.fish; end
+
+        # pnpm
+        set -gx PNPM_HOME "/home/faiz/.local/share/pnpm"
+        if not string match -q -- $PNPM_HOME $PATH
+          set -gx PATH "$PNPM_HOME" $PATH
+        end
+        # pnpm end
 
     case Darwin
         set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
@@ -70,3 +79,4 @@ set -x LESS_TERMCAP_us (printf "\033[1;4;31m")
 fish_vi_key_bindings
 
 export GPG_TTY=(tty)
+

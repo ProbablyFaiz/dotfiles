@@ -11,6 +11,7 @@
         l = log --oneline -n 10
         a = add
         aa = add -A
+        aap = "!f() { pre-commit run --all-files && git pf; }; f"
         au = add -u
         c = commit
 	cm = commit -m
@@ -47,12 +48,16 @@
 [core]
 	excludesfile = ~/.gitignore
 	fileMode = false
+	editor = vim
 [hub]
 	protocol = https
 [commit]
 	gpgSign = true
 [includeIf "gitdir:/Users/"]
 	path=~/.gitconfig-mac
+
+[includeIf "gitdir:/home/"]
+	path=~/.gitconfig-linux
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

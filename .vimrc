@@ -36,3 +36,6 @@ set backspace=indent,eol,start
 
 noremap j gj
 noremap k gk
+
+set foldmethod=marker
+set foldmarker=#\ region,#\ endregion

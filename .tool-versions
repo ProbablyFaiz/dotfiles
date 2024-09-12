@@ -1,5 +1,5 @@
 elixir 1.11.3-otp-23
-nodejs 18.15.0
+nodejs 18.18.2
 ruby 2.6.6
 golang 1.17.6
 opam 2.1.0
