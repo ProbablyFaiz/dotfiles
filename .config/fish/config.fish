@@ -16,6 +16,8 @@ if status is-interactive
     alias bic='brew install --cask'
     alias bs='brew search'
     alias g='git'
+    alias us='uv sync'
+    alias usu='uv sync -U'
     alias ucom='uv pip compile -o requirements.txt requirements.in'
     alias upi='uv pip install'
     alias upir='uv pip install -r requirements.txt'
@@ -29,6 +31,10 @@ if status is-interactive
     alias untar='tar -xvzf'
     alias countloc='git ls-files | grep ".*\.\(ts\|tsx\|js\|jsx\|py\|md\)\$" | grep -v "webpack" | xargs wc -l | sort -n'
     alias ppython='PYTHONPATH=. python $argv'
+    alias ta='tmux a'
+    alias tat='tmux a -t'
+    alias tls='tmux list-sessions'
+    alias trs='tmux rename-session -t'
 
     function ppid
         lsof -ti:$argv
