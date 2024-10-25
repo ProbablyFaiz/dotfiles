@@ -51,8 +51,8 @@ switch (uname)
     case Linux
         set -gx PATH /home/faiz/.local/bin $PATH
         set -gx PATH /home/faiz/.cargo/bin $PATH
-        set -x RESTIC_PASSWORD_FILE /home/faiz/.config/restic/r2.password
-        set -x RESTIC_REPOSITORY rclone:r2:/faiz/backups
+        set -Ux RESTIC_PASSWORD_FILE /home/faiz/.config/restic/r2.password
+        set -Ux RESTIC_REPOSITORY rclone:r2:/faiz/backups
         source ~/.asdf/asdf.fish 2>/dev/null
         alias config='/usr/bin/git --git-dir=/home/faiz/.cfg/ --work-tree=/home/faiz'
         alias cfg='config'
@@ -71,7 +71,7 @@ switch (uname)
         set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
         set -gx PATH $HOME/.cabal/bin /Users/faiz/.ghcup/bin $PATH # ghcup-env
         set -gx PATH /opt/homebrew/bin $PATH
-        set -x RESTIC_PASSWORD_FILE /Users/faiz/.config/restic/r2.password
+        set -Ux RESTIC_PASSWORD_FILE /Users/faiz/.config/restic/r2.password
 
         source /opt/homebrew/opt/asdf/libexec/asdf.fish
         alias config='/usr/bin/git --git-dir=/Users/faiz/.cfg --work-tree=/Users/faiz'
