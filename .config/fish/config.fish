@@ -37,9 +37,13 @@ if status is-interactive
     alias t='tmux a -t'
     alias tls='tmux list-sessions'
     alias trs='tmux rename-session -t'
+    alias s='ssh poirot'
 
     function ppid
         lsof -ti:$argv
+    end
+    function st
+        ssh poirot -t "tmux a -t $argv"
     end
  end
 
@@ -51,6 +55,7 @@ switch (uname)
         set -x RESTIC_REPOSITORY rclone:r2:/faiz/backups
         source ~/.asdf/asdf.fish 2>/dev/null
         alias config='/usr/bin/git --git-dir=/home/faiz/.cfg/ --work-tree=/home/faiz'
+        alias cfg='config'
         # opam configuration
         source /home/faiz/.opam/opam-init/init.fish >/dev/null 2>/dev/null; or true
         if test -f /home/faiz/.autojump/share/autojump/autojump.fish; . /home/faiz/.autojump/share/autojump/autojump.fish; end
@@ -70,6 +75,7 @@ switch (uname)
 
         source /opt/homebrew/opt/asdf/libexec/asdf.fish
         alias config='/usr/bin/git --git-dir=/Users/faiz/.cfg --work-tree=/Users/faiz'
+        alias cfg='config'
         set -gx PATH /opt/homebrew/opt/llvm@11/bin $PATH
         set -gx PATH '/Applications/Racket v8.3/bin' $PATH
         set -gx PATH /Users/faiz/.local/bin $PATH
@@ -77,6 +83,13 @@ switch (uname)
         test -f /opt/homebrew/share/autojump/autojump.fish; and source /opt/homebrew/share/autojump/autojump.fish
         set -gx PATH /opt/homebrew/opt/python@3.11/bin $PATH
         set -U fish_user_paths "/Users/faiz/Library/Application Support/uv/python/cpython-3.11.9-macos-aarch64-none/bin" $fish_user_paths
+
+        # pnpm
+        set -gx PNPM_HOME "/Users/faiz/Library/pnpm"
+        if not string match -q -- $PNPM_HOME $PATH
+          set -gx PATH "$PNPM_HOME" $PATH
+        end
+        # pnpm end
     end
 
 set -x LESS_TERMCAP_mb (printf "\033[1;32m")  
@@ -90,4 +103,5 @@ set -x LESS_TERMCAP_us (printf "\033[1;4;31m")
 fish_vi_key_bindings
 
 export GPG_TTY=(tty)
+
 
