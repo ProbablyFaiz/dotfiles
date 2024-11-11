@@ -51,6 +51,7 @@ switch (uname)
     case Linux
         set -gx PATH /home/faiz/.local/bin $PATH
         set -gx PATH /home/faiz/.cargo/bin $PATH
+        set -gx PATH /home/faiz/scripts $PATH
         set -Ux RESTIC_PASSWORD_FILE /home/faiz/.config/restic/r2.password
         set -Ux RESTIC_REPOSITORY rclone:r2:/faiz/backups
         source ~/.asdf/asdf.fish 2>/dev/null
