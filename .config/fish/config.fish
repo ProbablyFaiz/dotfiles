@@ -68,6 +68,10 @@ switch (uname)
         end
         # pnpm end
 
+        if test -e /home/faiz/.config/fish/private.fish
+            source /home/faiz/.config/fish/private.fish
+        end
+
     case Darwin
         set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
         set -gx PATH $HOME/.cabal/bin /Users/faiz/.ghcup/bin $PATH # ghcup-env
@@ -106,3 +110,10 @@ fish_vi_key_bindings
 export GPG_TTY=(tty)
 
 
+
+# pnpm
+set -gx PNPM_HOME "/home/faiz/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

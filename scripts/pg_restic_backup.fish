@@ -21,8 +21,8 @@ set local_retention_days $argv[4]
 set timestamp (date +%Y%m%d_%H%M%S)
 set dump_file "$backup_dir/$db_name"_"$timestamp.sql"
 
-pg_dump -d $db_name -f $dump_file
-restic -r $restic_repo backup --tag "pg_backup_$db_name" $dump_file
+pg_dump --no-owner -d $db_name -f $dump_file
+restic -r $restic_repo backup --tag "pg_backup_$db_name,pg_backup" $dump_file
 
 # Clean old local dumps
 find $backup_dir -name "$db_name*.sql" -mtime +$local_retention_days -delete
