@@ -41,7 +41,7 @@
         f = fetch
         gimme = !git fetch && git reset --hard @{u}
         p = push
-        pf = push -f
+        pf = push --force-with-lease
         pl = pull
         pp = push --set-upstream origin HEAD
         shove = push --set-upstream origin HEAD
@@ -67,3 +67,5 @@
 	defaultBranch = main
 [advice]
 	addEmptyPathspec = false
+[rerere]
+	enabled = true
