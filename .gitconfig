@@ -19,6 +19,7 @@
         apf = "!f() { git amend -a && git pf; }; f"
 	ama = commit --amend --no-edit -a
 	wip = !git add -A && git commit -m 'WIP'
+        wipp = !git wip && git p
         edit = commit --amend
         fix = commit -m "fixup"
         refl = reflog
@@ -49,6 +50,7 @@
 	excludesfile = ~/.gitignore
 	fileMode = false
 	editor = vim
+        pager = delta || less
 [hub]
 	protocol = https
 [commit]
@@ -69,3 +71,5 @@
 	addEmptyPathspec = false
 [rerere]
 	enabled = true
+[delta]
+	navigate = true

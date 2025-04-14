@@ -1,10 +1,11 @@
 if status is-interactive
     starship init fish | source
     alias u="uv run"
+    alias jt="just"
     alias pn="pnpm"
     alias ls="lsd -A"
+    alias cless="csvlens"
     alias gloh='git log --oneline -n 10'
-    alias asrp='asdf reshim python'
     alias wh='wormhole --transit-helper=tcp:relay.soc220014.projects.jetstream-cloud.org:4001'
     alias py='bpython'
     alias efish='source ~/.config/fish/config.fish'
@@ -37,6 +38,10 @@ if status is-interactive
     alias t='tmux a -t'
     alias tls='tmux list-sessions'
     alias trs='tmux rename-session -t'
+    alias dc='docker compose'
+    alias dcu='docker compose up'
+    alias dcd='docker compose down'
+    alias dcl='docker compose logs'
     alias s='ssh poirot'
 
     function ppid
@@ -44,6 +49,9 @@ if status is-interactive
     end
     function st
         ssh poirot -t "tmux a -t $argv"
+    end
+    function countf
+        find $argv -type f | wc -l
     end
  end
 
