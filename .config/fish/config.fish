@@ -81,12 +81,12 @@ switch (uname)
         end
 
     case Darwin
+        set -gx PNPM_HOME "/Users/faiz/.local/share/pnpm"
         set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
         set -gx PATH $HOME/.cabal/bin /Users/faiz/.ghcup/bin $PATH # ghcup-env
         set -gx PATH /opt/homebrew/bin $PATH
         set -Ux RESTIC_PASSWORD_FILE /Users/faiz/.config/restic/r2.password
 
-        source /opt/homebrew/opt/asdf/libexec/asdf.fish
         alias config='/usr/bin/git --git-dir=/Users/faiz/.cfg --work-tree=/Users/faiz'
         alias cfg='config'
         set -gx PATH /opt/homebrew/opt/llvm@11/bin $PATH

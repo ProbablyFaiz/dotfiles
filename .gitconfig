@@ -46,6 +46,8 @@
         pl = pull
         pp = push --set-upstream origin HEAD
         shove = push --set-upstream origin HEAD
+        rt = restore
+        sw = switch
 [core]
 	excludesfile = ~/.gitignore
 	fileMode = false
