@@ -16,3 +16,6 @@ __pycache__/
 *.dump
 *.log
 *.profile
+!template.env
+!.env.example
+.envrc

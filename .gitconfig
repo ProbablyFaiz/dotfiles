@@ -11,10 +11,11 @@
         l = log --oneline -n 10
         a = add
         aa = add -A
-        aap = "!f() { pre-commit run --all-files && git pf; }; f"
         au = add -u
         c = commit
 	cm = commit -m
+        cma = "!f() { pre-commit run --all-files; git commit -a -m \"$1\"; }; f"
+        cmap = "!f() { pre-commit run --all-files; git commit -a -m \"$1\" && git push; }; f"
 	amend = commit --amend --no-edit
         apf = "!f() { git amend -a && git pf; }; f"
 	ama = commit --amend --no-edit -a
@@ -48,6 +49,7 @@
         shove = push --set-upstream origin HEAD
         rt = restore
         sw = switch
+        create = "!f() { gh repo create --private $1 && git remote add origin https://github.com/$1.git; }; f"
 [core]
 	excludesfile = ~/.gitignore
 	fileMode = false
