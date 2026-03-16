@@ -86,7 +86,6 @@ switch (uname)
         direnv hook fish | source
 
     case Darwin
-        set -gx PNPM_HOME "/Users/faiz/.local/share/pnpm"
         set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
         set -gx PATH $HOME/.cabal/bin /Users/faiz/.ghcup/bin $PATH # ghcup-env
         set -gx PATH /opt/homebrew/bin $PATH
@@ -95,6 +94,7 @@ switch (uname)
         alias config='/usr/bin/git --git-dir=/Users/faiz/.cfg --work-tree=/Users/faiz'
         alias cfg='config'
         set -gx PATH /opt/homebrew/opt/llvm@11/bin $PATH
+        set -gx DYLD_LIBRARY_PATH /opt/homebrew/lib $DYLD_LIBRARY_PATH
         set -gx PATH '/Applications/Racket v8.3/bin' $PATH
         set -gx PATH /Users/faiz/.local/bin $PATH
         set -gx PATH /Users/faiz/.cargo/bin $PATH
@@ -102,6 +102,7 @@ switch (uname)
         set -gx PATH /opt/homebrew/opt/python@3.11/bin $PATH
         set -U fish_user_paths "/Users/faiz/Library/Application Support/uv/python/cpython-3.11.9-macos-aarch64-none/bin" $fish_user_paths
 
+        fnm env | source
         # pnpm
         set -gx PNPM_HOME "/Users/faiz/Library/pnpm"
         if not string match -q -- $PNPM_HOME $PATH
@@ -125,14 +126,3 @@ fish_vi_key_bindings
 
 export GPG_TTY=(tty)
 
-
-
-# pnpm
-set -gx PNPM_HOME "/home/faiz/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/faiz/google-cloud-sdk/path.fish.inc' ]; . '/home/faiz/google-cloud-sdk/path.fish.inc'; end
