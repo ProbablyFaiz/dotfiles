@@ -8,7 +8,7 @@
         s = status
 	br = branch
         dfs = diff --staged
-        l = log --oneline -n 10
+        l = log --oneline -n 10 --abbrev=10
         a = add
         aa = add -A
         au = add -u

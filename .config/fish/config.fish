@@ -2,6 +2,8 @@ if status is-interactive
     starship init fish | source
     alias u="uv run"
     alias c="claude --dangerously-skip-permissions"
+    alias cupdate="curl -fsSL https://claude.ai/install.sh | bash"
+    alias cx="codex --dangerously-bypass-approvals-and-sandbox"
     alias jt="just"
     alias pn="pnpm"
     alias ls="lsd -A"
@@ -29,11 +31,11 @@ if status is-interactive
     alias pipir='pip install -r requirements.txt'
     alias pipu='pip install --upgrade'
     alias pipup='pip install --upgrade pip'
-    alias pcr='pre-commit run --all-files'
-    alias pcra='git aa && pre-commit run --all-files'
+    alias pcr='prek run --all-files'
+    alias pcra='git aa && prek run --all-files'
     alias gcon='vi ~/.gitconfig'
     alias untar='tar -xvzf'
-    alias countloc='git ls-files | grep ".*\.\(ts\|tsx\|js\|jsx\|py\|md\|css\|fish\|bash\|sh\|conf\|ini\|ya?ml\)\$" | grep -v "webpack" | grep -v ".gen.ts" | grep -v "pnpm-lock" | grep -v "/components/ui/" | xargs wc -l | sort -n'
+    alias countloc='git ls-files | grep ".*\.\(ts\|tsx\|js\|jsx\|py\|go\|rs\|md\|css\|fish\|bash\|sh\|tf\|conf\|ini\|ya?ml\)\$" | grep -v "webpack" | grep -v ".gen.ts" | grep -v "pnpm-lock" | grep -v "/components/ui/" | xargs wc -l | sort -n'
     alias ppython='PYTHONPATH=. python $argv'
     alias ta='tmux a'
     alias tat='tmux a -t'
@@ -60,11 +62,20 @@ if status is-interactive
 
 switch (uname)
     case Linux
+        set -gx BROWSER 'echo'
         set -gx PATH /home/faiz/.local/bin $PATH
         set -gx PATH /home/faiz/.cargo/bin $PATH
         set -gx PATH /home/faiz/scripts $PATH
-        set -Ux RESTIC_PASSWORD_FILE /home/faiz/.config/restic/r2.password
-        set -Ux RESTIC_REPOSITORY rclone:r2:/faiz/backups
+        set -gx PATH /home/faiz/.depot/bin $PATH
+        set -gx BUN_INSTALL "$HOME/.bun"
+        fish_add_path $BUN_INSTALL/bin
+        fish_add_path $HOME/go/bin
+        set -gx RESTIC_PASSWORD_FILE /home/faiz/.config/restic/r2.password
+        set -gx RESTIC_REPOSITORY rclone:r2:/faiz/backups
+
+        set -gx UV_KEYRING_PROVIDER subprocess
+        set -gx UV_INDEX_CALDERA_USERNAME oauth2accesstoken
+
         alias config='/usr/bin/git --git-dir=/home/faiz/.cfg/ --work-tree=/home/faiz'
         alias cfg='config'
         # opam configuration
@@ -74,8 +85,8 @@ switch (uname)
 
         # pnpm
         set -gx PNPM_HOME "/home/faiz/.local/share/pnpm"
-        if not string match -q -- $PNPM_HOME $PATH
-          set -gx PATH "$PNPM_HOME" $PATH
+        if not string match -q -- "$PNPM_HOME/bin" $PATH
+          set -gx PATH "$PNPM_HOME/bin" $PATH
         end
         # pnpm end
 
