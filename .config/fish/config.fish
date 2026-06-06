@@ -1,5 +1,5 @@
 if status is-interactive
-    starship init fish | source
+    alias df="duf --hide special"
     alias u="uv run"
     alias c="claude --dangerously-skip-permissions"
     alias cupdate="curl -fsSL https://claude.ai/install.sh | bash"
@@ -83,6 +83,9 @@ switch (uname)
         if test -f /home/faiz/.autojump/share/autojump/autojump.fish; . /home/faiz/.autojump/share/autojump/autojump.fish; end
         eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
+        fish_add_path (brew --prefix)/opt/libpq/bin
+        set -gx EDITOR (which vim)
+
         # pnpm
         set -gx PNPM_HOME "/home/faiz/.local/share/pnpm"
         if not string match -q -- "$PNPM_HOME/bin" $PATH
@@ -95,6 +98,10 @@ switch (uname)
         end
         zoxide init fish | source
         direnv hook fish | source
+
+        fnm env --use-on-cd --shell fish | source
+
+
 
     case Darwin
         set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME
@@ -137,3 +144,6 @@ fish_vi_key_bindings
 
 export GPG_TTY=(tty)
 
+if status is-interactive
+    starship init fish | source
+end
