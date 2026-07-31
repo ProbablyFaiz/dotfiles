@@ -1,8 +1,10 @@
 if status is-interactive
-    alias df="duf --hide special"
     alias u="uv run"
     alias c="claude --dangerously-skip-permissions"
+    alias copus="claude --dangerously-skip-permissions --model opus --effort medium"
+    alias cable="claude --dangerously-skip-permissions --model fable --effort high"
     alias cupdate="curl -fsSL https://claude.ai/install.sh | bash"
+    alias df="duf --hide special --hide-mp /boot"
     alias cx="codex --dangerously-bypass-approvals-and-sandbox"
     alias jt="just"
     alias pn="pnpm"
@@ -10,7 +12,6 @@ if status is-interactive
     alias cless="csvlens"
     alias gloh='git log --oneline -n 10'
     alias grao='git remote add origin'
-    alias wh='wormhole --transit-helper=tcp:relay.soc220014.projects.jetstream-cloud.org:4001'
     alias py='bpython'
     alias efish='source ~/.config/fish/config.fish'
     alias vifish='vi ~/.config/fish/config.fish'
@@ -64,12 +65,12 @@ switch (uname)
     case Linux
         set -gx BROWSER 'echo'
         set -gx PATH /home/faiz/.local/bin $PATH
-        set -gx PATH /home/faiz/.cargo/bin $PATH
         set -gx PATH /home/faiz/scripts $PATH
         set -gx PATH /home/faiz/.depot/bin $PATH
         set -gx BUN_INSTALL "$HOME/.bun"
         fish_add_path $BUN_INSTALL/bin
         fish_add_path $HOME/go/bin
+        fish_add_path -p /home/faiz/.cargo/bin $PATH
         set -gx RESTIC_PASSWORD_FILE /home/faiz/.config/restic/r2.password
         set -gx RESTIC_REPOSITORY rclone:r2:/faiz/backups
 
@@ -83,7 +84,9 @@ switch (uname)
         if test -f /home/faiz/.autojump/share/autojump/autojump.fish; . /home/faiz/.autojump/share/autojump/autojump.fish; end
         eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
-        fish_add_path (brew --prefix)/opt/libpq/bin
+        # Keg-only libpq is invisible to the dynamic linker; psycopg (pure
+        # Python) needs to dlopen libpq.so.5 at runtime.
+        set -gx LD_LIBRARY_PATH (brew --prefix)/opt/libpq@18/lib $LD_LIBRARY_PATH
         set -gx EDITOR (which vim)
 
         # pnpm

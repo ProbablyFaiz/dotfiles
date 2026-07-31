@@ -22,5 +22,6 @@ __pycache__/
 
 .claude/worktrees
 .serena/
+.claude/*.lock
 
 **/.claude/settings.local.json
