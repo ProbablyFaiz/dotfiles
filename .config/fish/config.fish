@@ -36,7 +36,7 @@ if status is-interactive
     alias pcra='git aa && prek run --all-files'
     alias gcon='vi ~/.gitconfig'
     alias untar='tar -xvzf'
-    alias countloc='git ls-files | grep ".*\.\(ts\|tsx\|js\|jsx\|py\|go\|rs\|md\|css\|fish\|bash\|sh\|tf\|conf\|ini\|ya?ml\)\$" | grep -v "webpack" | grep -v ".gen.ts" | grep -v "pnpm-lock" | grep -v "/components/ui/" | xargs wc -l | sort -n'
+    alias countloc='git ls-files | grep ".*\.\(ts\|tsx\|js\|jsx\|py\|go\|rs\|md\|css\|fish\|bash\|sh\|tf\|conf\|ini\|ya?ml\)\$" | grep -v "webpack" | grep -v ".gen.ts" | grep -v "pnpm-lock" | grep -v "/components/ui/" | tr "\n" "\0" | wc -l --files0-from=- | sort -n'
     alias ppython='PYTHONPATH=. python $argv'
     alias ta='tmux a'
     alias tat='tmux a -t'
@@ -70,7 +70,7 @@ switch (uname)
         set -gx BUN_INSTALL "$HOME/.bun"
         fish_add_path $BUN_INSTALL/bin
         fish_add_path $HOME/go/bin
-        fish_add_path -p /home/faiz/.cargo/bin $PATH
+        fish_add_path -p /home/faiz/.cargo/bin
         set -gx RESTIC_PASSWORD_FILE /home/faiz/.config/restic/r2.password
         set -gx RESTIC_REPOSITORY rclone:r2:/faiz/backups
 
