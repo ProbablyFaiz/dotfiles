@@ -1,0 +1,45 @@
+# Ported from iTerm2 "Default" profile (faiz-dark colors)
+
+# --- Font ---
+font-family = FiraCode Nerd Font Mono
+font-size = 16
+
+# --- Colors (faiz-dark) ---
+background = #000000
+foreground = #ffffff
+cursor-color = #c7c7c7
+cursor-text = #ffffff
+selection-background = #c1deff
+selection-foreground = #000000
+
+palette = 0=#000000
+palette = 1=#ff6e67
+palette = 2=#5ffa68
+palette = 3=#fffc67
+palette = 4=#27bef7
+palette = 5=#f673f6
+palette = 6=#60fdff
+palette = 7=#c7c7c7
+palette = 8=#686868
+palette = 9=#ff6e67
+palette = 10=#5ffa68
+palette = 11=#fffc67
+palette = 12=#27bff8
+palette = 13=#ff77ff
+palette = 14=#60fdff
+palette = 15=#ffffff
+
+# --- Behavior matching iTerm ---
+cursor-style-blink = false
+background-opacity = 1
+window-width = 80
+window-height = 25
+copy-on-select = clipboard
+
+# --- SSH ---
+# Auto-install xterm-ghostty terminfo on remote hosts; fall back to xterm-256color
+shell-integration-features = ssh-terminfo,ssh-env
+
+# --- Scrolling ---
+# Mouse wheel (discrete) was ~40 lines/tick in tmux; trackpad (precision) unchanged
+mouse-scroll-multiplier = precision:1,discrete:1
